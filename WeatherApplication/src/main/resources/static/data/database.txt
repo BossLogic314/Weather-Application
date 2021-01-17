@@ -1,0 +1,39 @@
+Drop table [User]
+Drop table UserCities
+
+create table [User](
+	UserId bigint identity not null,
+	FirstName varchar(50) not null,
+	LastName varchar(50) not null,
+	Username varchar(50) not null,
+	Password varchar(50) not null
+	
+	CONSTRAINT PK_USER_ID PRIMARY KEY NONCLUSTERED (UserId)
+);
+
+create table UserCities(
+	UserCitiesId bigint identity not null,
+	UserId bigint not null,
+	CityId bigint not null
+	
+	CONSTRAINT PK_USER_CITIES_ID PRIMARY KEY NONCLUSTERED (UserCitiesId)
+	CONSTRAINT FK_USER_CITIES_USER_ID FOREIGN KEY (UserId)
+	REFERENCES [User] (UserId)
+);
+
+create table CityList(
+	CityListId bigint identity not null,
+	CityId bigint not null,
+	CityName nvarchar(100) not null,
+	CountryName nvarchar(50) not null,
+	CountryCode varchar(10) not null,
+	Latitude decimal(15,10),
+	Longitude decimal(15,10)
+	
+	CONSTRAINT PK_CITY_LIST_ID PRIMARY KEY NONCLUSTERED (CityListId)
+);
+
+CREATE NONCLUSTERED INDEX [INDEX_CITYLIST_CITYNAME] ON [CityList]
+(
+	[CityName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]

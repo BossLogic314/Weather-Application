@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Weather Application</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="styles/loginForm.css">
+	</head>
+	
+	<body>
+        <header id="applicationHeader">
+            <h1 id="headerMessage">Welcome!</h1>
+        </header>
+
+        <div class="container">
+            <div class="description">
+                <h1 id="descriptionHeading">Weather Application</h1>
+                <p id="descriptionText">
+                    You can view and store weather details of cities around the world.
+                </p>
+            </div>
+
+            <div class="login">
+            	<p class="errorMessage" th:if="${param.error}">Invalid username or password. Please try again.</p>
+                <h1 id="loginHeading">Login</h1>
+
+                <div class="options">
+					<form th:action="@{/login}" method="post">
+	                    <div class="username">
+	                        <label for="username">Username</label>
+	                        <input type="text" name="username" id="username">
+	                    </div>
+	
+	                    <div class="password">
+	                        <label for="password">Password</label>
+	                        <input type="password" name="password" id="password">
+	                    </div>
+                    	<input type="submit" value="Log in">
+                    </form>
+                </div>
+
+                <div id="registerOption">
+                    <br>
+                    <p id="registrationMessage">Do not have an account?</p>
+                    <a th:href="@{/registration}"><input type="submit" value="Register"></a>
+                </div>
+            </div>
+        </div>
+	</body>
+</html>

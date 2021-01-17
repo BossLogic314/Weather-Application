@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Weather Application</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+        <link rel = "stylesheet" href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
+        <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+        <link rel="stylesheet" href="styles/weather.css">
+    </head>
+
+    <body>
+        <header id="mainHeader">
+            <div class="container">
+                <div id="selectOptions">
+                    <input type="text" id="chooseCity" placeholder="Search for a city...">
+
+                    <p id="message"></p>
+
+                    <div id="removeOption">
+                        <input type="button" id="removeAllCities" value="Remove all cities">
+                    </div>
+                </div>
+
+                <div id="heading">
+                    <h1 id="headingText">Weather Application</h1>
+                </div>
+
+                <div id="userProfile">
+                    <p id="welcome">Hello, [(${userName})]!</p>
+                    
+                    <form method="POST" th:action="@{/logout}">
+                    	<input type="submit" id="logout" value="Logout">
+                    </form>
+                </div>
+            </div>
+        </header>
+
+		<div class="container" id="weatherBoxes">
+			<span th:each="cityWeatherInfo : ${cityList}">
+				<span th:attr="cityname=${cityWeatherInfo.getCityName()}, id=${cityWeatherInfo.getCityId()}" class="weatherBox">
+					<header id="weatherBoxHeader">
+						<div id="nameOfTheCity">[(${cityWeatherInfo.cityName})]</div>
+						<input type="button" id="closeButton" value="x">
+					</header>
+
+					<div class="middle">
+						<div class="imageHolder">
+							<img class="image" th:src="'images/' + ${cityWeatherInfo.icon} + '.png'" alt="icon" id="icon">
+						</div>
+						
+						<div class="temperatureValue">
+							<h1 id="number">
+								[(${cityWeatherInfo.temperature})] <sup>o</sup>C
+							</h1>
+						</div>
+					</div>
+					<footer id="weatherBoxFooter"> [(${cityWeatherInfo.description})] </footer>
+				</span>
+			</span>
+		</div>
+
+		<script src = "scripts/weather.js"></script>
+    </body>
+</html>

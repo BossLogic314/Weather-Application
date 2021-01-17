@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+	<head>
+        <title>Weather Application</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="styles/registrationForm.css">
+	</head>
+	
+	<body>
+		<header id="applicationHeader">
+            <h1 id="headerMessage">Welcome!</h1>
+        </header>
+        
+        <div class="container">
+            <div class="registration">
+                <h1 id="registrationHeading">Register</h1>
+				
+                <div class="options">
+					<form th:action="@{/registration}" method="post" th:object="${registrationForm}">
+	                    <div class="firstName">
+	                    	<p class="errorMessages" th:if="${#fields.hasErrors('FirstName')}" th:errors="*{FirstName}"></p>
+	                        <label for="firstName">First Name</label>
+	                        <input type="text" name="firstName" id="firstName" th:field="*{FirstName}">
+	                    </div>
+
+	                    <div class="lastName">
+	                    	<p class="errorMessages" th:if="${#fields.hasErrors('LastName')}" th:errors="*{LastName}"></p>
+	                        <label for="lastName">Last Name</label>
+	                        <input type="text" name="lastName" id="lastName" th:field="*{LastName}">
+	                    </div>
+	
+	                    <div class="username">
+	                    	<p class="errorMessages" th:if="${#fields.hasErrors('Username')}" th:errors="*{Username}"></p>
+	                    	<p class="uniqueUsername" th:if="${uniqueUser != null}">This username is already taken.
+	                    		Please try another.</p>
+	                        <label for="username">Username</label>
+	                        <input type="text" name="username" id="username" th:field="*{Username}">
+	                    </div>
+	
+	                    <div class="password">
+	                    	<p class="errorMessages" th:if="${#fields.hasErrors('Password')}" th:errors="*{Password}"></p>
+	                        <label for="password">Password</label>
+	                        <input type="password" name="password" id="password" th:field="*{Password}">
+	                    </div>
+	
+	                    <input type="submit" value="Register">
+                    </form>
+                </div>
+            </div>
+        </div>
+	</body>
+</html>

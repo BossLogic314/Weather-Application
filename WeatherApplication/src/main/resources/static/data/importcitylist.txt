@@ -1,0 +1,9 @@
+BULK INSERT citylist 
+FROM  'D:\temp\weather\citydata.txt'
+WITH 
+    ( 
+		FIRSTROW = 2,
+		DATAFILETYPE = 'widechar',
+        FIELDTERMINATOR = '\t',
+        ROWTERMINATOR ='\n'
+    );

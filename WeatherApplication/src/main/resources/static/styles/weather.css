@@ -1,0 +1,195 @@
+body{
+    background-image: url('../images/loginRegBackground.png');
+}
+
+#mainHeader{
+    border-bottom: 2px solid orange;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+
+    min-width: 410px;
+    width: 100%;
+}
+
+#selectOptions{
+    width: 27.5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px;
+}
+
+#chooseCity, #removeOption{
+    font-size: 1.75rem;
+}
+
+#message{
+    font-family: serif, sans-serif;
+    font-style: oblique;
+
+    font-size: 1.75rem;
+
+    color: lightgreen;
+}
+
+#heading{
+    width: 45%;
+
+    text-align: center;
+}
+
+#headingText{
+    color: white;
+
+    font-size: 5rem;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+}
+
+#userProfile{
+    width: 27.5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 5px;
+}
+
+#welcome{
+    font-size: 2rem;
+
+    font-family: serif, sans-serif;
+    font-style: oblique;
+    color: lightgreen;
+}
+
+#logout{
+    font-size: 2rem;
+    width: 4em;
+
+    color: white;
+    background-color: #fa8072;
+}
+
+#removeAllCities{
+    color: white;
+    background-color: #fa8072;
+}
+
+#weatherBoxes{
+    width: 100%;
+}
+
+.weatherBox{
+    border-radius: 20px;
+
+    background-color: skyblue;
+    color: white;
+
+    margin-top: 20px;
+    margin-left: 20px;
+
+    height: 350px;
+    width: 300px;
+
+    display: inline-block;
+
+    text-align: center;
+}
+
+#weatherBoxHeader{
+    display: flex;
+
+    height: 63px;
+
+    border-bottom: 3px solid orange;
+}
+
+#nameOfTheCity{
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+
+    align-self: center;
+    justify-content: center;
+
+    font-size: 4.5rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#closeButton{
+    width: 5%;
+    justify-content: end;
+    align-self: flex-start;
+
+    font-size: 2rem;
+}
+
+.imageHolder{
+    height: 64px;
+}
+
+.image{
+    margin-top: 20px;
+}
+
+.temperatureValue{
+    justify-content: center;
+}
+
+#number{
+    font-size: 80px;
+}
+
+#units{
+    font-size: 80px;
+}
+
+#dot{
+    font-size: 40px;
+}
+
+#weatherBoxFooter{
+    font-size: 250%;
+}
+
+input[value='x']{
+    font-size: 40%;
+
+    border: none;
+    padding: 0;
+
+    margin-right: 8px;
+
+    outline: none;
+
+    background: none;
+}
+
+@media (max-width: 860px){
+
+    #heading{
+        order: -1;
+        width: 100%;
+    }
+
+    #selectOptions{
+        width: 60%;
+    }
+
+    #userProfile{
+        width: 40%;
+    }
+}
